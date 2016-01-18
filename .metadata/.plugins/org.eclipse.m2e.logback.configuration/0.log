@@ -9093,3 +9093,6 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: end tag nam
 2016-01-11 21:10:12,850 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\src\mine\eclipse\001\user-service\src\main\resources
 2016-01-11 21:10:12,851 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2016-01-11 21:10:12,851 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\src\mine\eclipse\001\user-service\src\test\resources
+2016-01-17 22:58:04,008 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2016-01-17 22:58:09,931 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - F:\src\mine\eclipse\mvn\user-parent
+2016-01-17 22:58:09,932 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -s F:\jars\apache\maven\3.3.3\apache-maven-3.3.3\conf\settings.xml clean
