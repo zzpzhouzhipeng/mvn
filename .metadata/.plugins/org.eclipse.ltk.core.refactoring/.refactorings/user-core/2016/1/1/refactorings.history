@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename package &apos;com.synnex.user_core&apos; to &apos;com.synnex.user.core&apos;&#x0D;&#x0A;- Original project: &apos;user-core&apos;&#x0D;&#x0A;- Original element: &apos;user-core/src/main/java/com.synnex.user_core&apos;&#x0D;&#x0A;- Renamed element: &apos;user-core/src/main/java/com.synnex.user.core&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.synnex.user_core&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java&lt;com.synnex.user_core" name="com.synnex.user.core" qualified="false" references="true" stamp="1451722158655" textual="false" version="1.0"/>
-</session>
