@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+		http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+		
+  	<welcome-file-list>
+		<welcome-file>/WEB-INF/jsp/index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<display-name>SpringMVC</display-name>
+	
+	
+	<!-- 定义spring配置文件 -->
+	<context-param>
+    	<param-name>contextConfigLocation</param-name>
+    	<param-value>classpath:spring/applicationContext-*.xml</param-value>
+	</context-param>
+	
+	<servlet>       
+  		<servlet-name>DruidStatView</servlet-name>     
+  		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>  
+	</servlet>   
+	<servlet-mapping>     
+   		<servlet-name>DruidStatView</servlet-name>  
+   		<url-pattern>/druid/*</url-pattern>  
+ 	</servlet-mapping>   
+	
+	<listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+	
+	<!-- 定义spring mvc 配置文件 -->
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>  
+            <param-name>contextConfigLocation</param-name>  
+            <!-- <param-value>/WEB-INF/dispatcher-servlet.xml</param-value> --> 
+             <param-value>classpath:spring/dispatcher-servlet.xml</param-value>
+        </init-param>
+		<load-on-startup>1</load-on-startup> <!-- load-on-startup：表示启动容器时初始化该Servlet -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern> <!-- url-pattern：表示哪些请求交给Spring Web MVC处理， "/" 是用来定义默认servlet映射的。也可以如"*.html"表示拦截所有以html为扩展名的请求  -->
+	</servlet-mapping>
+	
+	<filter>
+ 		<filter-name>DruidWebStatFilter</filter-name>
+ 		<filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+ 		<init-param>
+			<param-name>exclusions</param-name>
+			<param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</param-value>
+		</init-param>
+		<init-param>
+			<param-name>sessionStatMaxCount</param-name>
+        	<param-value>1000</param-value>
+		</init-param>
+		<init-param>
+			<param-name>sessionStatEnable</param-name>
+        	<param-value>false</param-value>
+		</init-param>
+		<init-param>
+        	<param-name>principalSessionName</param-name>
+        	<param-value>xxx.user</param-value>
+    	</init-param>
+    	<init-param>
+        	<param-name>principalCookieName</param-name>
+        	<param-value>xxx.user</param-value>
+    	</init-param>
+    	<init-param>
+    		<param-name>profileEnable</param-name>
+    		<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>DruidWebStatFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- post乱码过虑器 -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<jsp-config>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
+			<taglib-location>/WEB-INF/tld/c.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jsp/jstl/fmt</taglib-uri>
+			<taglib-location>/WEB-INF/tld/fmt.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jsp/jstl/functions</taglib-uri>
+			<taglib-location>/WEB-INF/tld/fn.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+</web-app>
