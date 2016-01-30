@@ -8,10 +8,11 @@
   
   <!-- 模块的项目模块的对路径-->
   <modules>
+  	<module>user-log</module>
   	<module>user-core</module>
   	<module>user-dao</module>
-  	<module>user-log</module>
   	<module>user-service</module>
+  	<module>user-controller</module>
   </modules>
   
   <url>http://maven.apache.org</url>
