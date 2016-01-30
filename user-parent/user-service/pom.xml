@@ -5,7 +5,7 @@
     <groupId>com.synnex</groupId>
 	<artifactId>user-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<relativePath>../user-parent/pom.xml</relativePath> <!-- pom.xml的绝对路径 -->
+	<relativePath>../pom.xml</relativePath> <!-- pom.xml的绝对路径 -->
   </parent>
   <artifactId>user-service</artifactId>
   <packaging>jar</packaging>

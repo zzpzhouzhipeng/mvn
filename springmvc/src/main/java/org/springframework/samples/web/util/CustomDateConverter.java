@@ -8,13 +8,14 @@ package org.springframework.samples.web.util;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.convert.converter.Converter;
 
 public class CustomDateConverter implements Converter<String, Date>{
 
 	@Override
 	public Date convert(String source) {
-		if( null == source || "".equals(source) ){
+		if( StringUtils.isBlank(source)){
 			return null;
 		}
 		

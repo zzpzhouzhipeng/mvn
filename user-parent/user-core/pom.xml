@@ -3,23 +3,23 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.synnex</groupId>
-	<artifactId>user-parent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<relativePath>../user-parent/pom.xml</relativePath> <!-- pom.xml的绝对路径 -->
+    <artifactId>user-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath> <!-- pom.xml的绝对路径 -->
   </parent>
-  <artifactId>user-dao</artifactId>
+  <artifactId>user-core</artifactId>
   <packaging>jar</packaging>
 
-  <name>user-dao</name>
+  <name>user-core</name>
 
   <dependencies>
-  	<dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+    <dependency>
+      	<groupId>junit</groupId>
+      	<artifactId>junit</artifactId>
     </dependency>
     <dependency>
-	  <groupId>mysql</groupId>
-	  <artifactId>mysql-connector-java</artifactId>
-    </dependency>
+		<groupId>commons-logging</groupId>
+		<artifactId>commons-logging</artifactId>
+	</dependency>
   </dependencies>
 </project>
