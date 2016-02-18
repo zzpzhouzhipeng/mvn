@@ -23,10 +23,18 @@
   </properties>
   
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
+  
+  		<!-- 模块依赖 -->
+  		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>wms-dao</artifactId>
+		</dependency>
+  
+		<!-- beign  spring 3.2.5  begin -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+
   </dependencies>
 </project>
