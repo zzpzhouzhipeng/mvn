@@ -19,6 +19,13 @@ public class UserServiceImpl implements IUserService{
         return user;
     }
 
+    public void editUser(User user) throws Exception{  
+        try{  
+        	userDao.editUser(user);
+        }catch(Exception e){  
+        	throw e;  
+        }
+    }
     
     
 	public IUserDao getUserDao() {

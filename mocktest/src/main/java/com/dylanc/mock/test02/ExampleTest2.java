@@ -2,14 +2,11 @@ package com.dylanc.mock.test02;
 
 import org.easymock.EasyMock;
 import org.easymock.EasyMockRule;
-import org.easymock.EasyMockRunner;
 import org.easymock.Mock;
 import org.easymock.TestSubject;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-@RunWith(EasyMockRunner.class)
 public class ExampleTest2 {
 
     @Rule

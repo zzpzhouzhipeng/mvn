@@ -1,47 +1,73 @@
+/**  
+ * Copyright Â© 2016 SYNNEX. All rights reserved.
+ * @Title SalesAction.java
+ * @Prject mocktest
+ * @Package com.dylanc.mock
+ * @ClassName UserServiceImplTest2 
+ * @author dylanc  
+ * @date 2016-2-2
+ * @version: v1.0 
+ * @Description æ³¨è§£æ–¹å¼è¿›è¡Œmockæµ‹è¯•
+*/
+
 package com.dylanc.mock.test01;
 
 import org.easymock.EasyMock;
 import org.easymock.EasyMockRunner;
 import org.easymock.Mock;
 import org.easymock.TestSubject;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.dylanc.mock.bean.User;
 import com.dylanc.mock.dao.IUserDao;
-import com.dylanc.mock.dao.impl.UserDaoImpl;
 import com.dylanc.mock.service.UserServiceImpl;
 
 @RunWith(EasyMockRunner.class)
 public class UserServiceImplTest2 {
 	
-	@Mock
-	private IUserDao mockUserDao  = EasyMock.createMock(UserDaoImpl.class);	// 1
+	@Mock 			// 1. åˆ›å»ºmockå¯¹è±¡
+	private IUserDao mockUserDao;
 	
-	@TestSubject
-	private UserServiceImpl  service = new UserServiceImpl(); 				// 2
+	@TestSubject	// 2. å°†mockå¯¹è±¡æ³¨å…¥åˆ°æµ‹è¯•ç±»ä¸­
+	private UserServiceImpl  service = new UserServiceImpl();
+	
+	@Before
+	public void setUp(){
+		System.out.println("before");
+	}
 	
 	@Test  
     public void testQuery() throws Exception {  
 		
+		// 3. recordé˜¶æ®µ
         User expectedUser = new User();  
         expectedUser.setId("1003");  
         expectedUser.setName("chenfliang");
         
+        EasyMock.expect(mockUserDao.getById("1002")).andReturn(expectedUser).times(1);  //å½•åˆ¶Mockå¯¹è±¡é¢„æœŸè¡Œä¸º  
         
-        EasyMock.expect(mockUserDao.getById("1002")).andReturn(expectedUser).times(1);  //Â¼ÖÆMock¶ÔÏóÔ¤ÆÚĞĞÎª  
-        EasyMock.replay(mockUserDao);  //ÖØ·ÅMock¶ÔÏó£¬²âÊÔÊ±ÒÔÂ¼ÖÆµÄ¶ÔÏóÔ¤ÆÚĞĞÎª´úÌæÕæÊµ¶ÔÏóµÄĞĞÎª  
+        // 4. replayé˜¶æ®µ
+        EasyMock.replay(mockUserDao);  //é‡æ”¾Mockå¯¹è±¡ï¼Œæµ‹è¯•æ—¶ä»¥å½•åˆ¶çš„å¯¹è±¡é¢„æœŸè¡Œä¸ºä»£æ›¿çœŸå®å¯¹è±¡çš„è¡Œä¸º  
         
-        User user = service.query("1002");  //µ÷ÓÃ²âÊÔ·½·¨  
+        User user = service.query("1002");  //è°ƒç”¨æµ‹è¯•æ–¹æ³•  
         
         System.out.println("Expe-id:" + expectedUser.getId() + ",name:" + expectedUser.getName());
         System.out.println("Real-id:" + user.getId() + ",name:" + user.getName());
         
         Assert.assertNotNull(user);
-        Assert.assertEquals(expectedUser.getId(), user.getId());   //¶ÏÑÔ²âÊÔ½á¹û   
-        Assert.assertEquals(expectedUser.getName(), user.getName());   //¶ÏÑÔ²âÊÔ½á¹û   
-        
-        EasyMock.verify(mockUserDao);  		//ÑéÖ¤Mock¶ÔÏó±»µ÷ÓÃ  
-    }  
+        Assert.assertEquals(expectedUser.getId(), user.getId());   //æ–­è¨€æµ‹è¯•ç»“æœ   
+        Assert.assertEquals(expectedUser.getName(), user.getName());   //æ–­è¨€æµ‹è¯•ç»“æœ   
+    } 
+	
+	
+	@After
+	public void setDown(){
+		// 5. verifyé˜¶æ®µ
+		EasyMock.verify(mockUserDao);  		//éªŒè¯Mockå¯¹è±¡è¢«è°ƒç”¨  
+		System.out.println("after");
+	}
 }

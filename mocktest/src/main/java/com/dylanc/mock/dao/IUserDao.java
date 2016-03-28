@@ -4,4 +4,6 @@ import com.dylanc.mock.bean.User;
 
 public interface IUserDao {
 	User getById(String id) throws Exception;
+	void editUser(User user) throws Exception;
+	
 }
