@@ -17,7 +17,7 @@ public class UserServiceImplTest3 {
 //                return count * 2;
 //            }
 //        });	
-        EasyMock.expect(service.execute(EasyMock.anyInt())).andDelegateTo(new ServiceImpl());
+
         
         EasyMock.replay(service);
         business.execute();

@@ -1,5 +1,6 @@
 package com.dylanc.mock.test02;
 
+import org.easymock.EasyMock;
 import org.easymock.EasyMockRunner;
 import org.easymock.EasyMockSupport;
 import org.easymock.Mock;
@@ -8,7 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(EasyMockRunner.class)
-public class ExampleTest extends EasyMockSupport {
+public class ExampleTest3 {
 
 //    @Rule
 //    public EasyMockRule rule = new EasyMockRule(this);
@@ -21,9 +22,10 @@ public class ExampleTest extends EasyMockSupport {
 
     @Test
     public void addDocument() {
-        collaborator.documentAdded("New Document"); // 3
-        replayAll(); // 4
-        classUnderTest.addDocument("New Document", "content"); // 5
-        verifyAll(); // 6
+    	EasyMock.expect(collaborator.addDocument("chenliang")).andReturn(42).times(1);
+//        collaborator.documentAdded("New Document"); // 3
+        EasyMock.replay(collaborator);
+        classUnderTest.addDocument2("chenliang", "content"); // 5
+        EasyMock.verify(collaborator);
     }
 }
