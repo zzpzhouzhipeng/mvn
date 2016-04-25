@@ -8,6 +8,7 @@
 
 # .gitignore for maven 
 target/
+index/
 */target/**
 
 # web application files

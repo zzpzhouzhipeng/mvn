@@ -22,7 +22,7 @@ public class Mysearch {
 	public static void main(String[] args) throws IOException, ParseException {
 		
 		// 
-		IndexReader indexReader = DirectoryReader.open(FSDirectory.open(new File("index")));
+		IndexReader indexReader = DirectoryReader.open(FSDirectory.open(new File("E:\\test\\lucenceindex")));
 		
 		IndexSearcher indexSearcher = new IndexSearcher(indexReader);
 		
