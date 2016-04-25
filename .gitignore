@@ -6,9 +6,10 @@
 *.war  
 *.ear 
 
+index/
+
 # .gitignore for maven 
 target/
-index/
 */target/**
 
 # web application files
