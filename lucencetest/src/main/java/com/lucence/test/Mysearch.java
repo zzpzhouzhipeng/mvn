@@ -1,6 +1,5 @@
 package com.lucence.test;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 
@@ -21,8 +20,7 @@ import org.apache.lucene.util.Version;
 public class Mysearch {
 	public static void main(String[] args) throws IOException, ParseException {
 		
-		// 
-		IndexReader indexReader = DirectoryReader.open(FSDirectory.open(new File("E:\\test\\lucenceindex")));
+		IndexReader indexReader = DirectoryReader.open(FSDirectory.open(new File("H:\\temp\\lucence")));
 		
 		IndexSearcher indexSearcher = new IndexSearcher(indexReader);
 		
@@ -30,7 +28,7 @@ public class Mysearch {
 		
 		QueryParser parser = new QueryParser(Version.LUCENE_45, "contents", analyzer);
 		
-		Query query = parser.parse("demo");
+		Query query = parser.parse("并发编程");
 		
 		doPagingSearch(indexSearcher, query, 20);
 	}
