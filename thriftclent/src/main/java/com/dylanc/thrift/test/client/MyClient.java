@@ -9,7 +9,7 @@ import org.apache.thrift.transport.TTransportException;
 
 import com.dylanc.thrift.test.handler.AdditionService;
    
-public class AdditionClient {  
+public class MyClient {  
    
  public static void main(String[] args) {  
    
